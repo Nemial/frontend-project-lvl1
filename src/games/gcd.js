@@ -3,7 +3,8 @@ import * as cli from '../cli.js';
 
 const description = 'Find the greatest common divisor of given numbers.';
 const findGCD = (firstNum, secondNum) => {
-  return firstNum % secondNum ? findGCD(secondNum, firstNum % secondNum) : secondNum;
+  const result = firstNum % secondNum;
+  return result ? findGCD(secondNum, firstNum % secondNum) : secondNum;
 };
 
 const getAnswerAndQuestion = () => {
