@@ -10,7 +10,7 @@ const findGCD = (firstNum, secondNum) => {
 const getAnswerAndQuestion = () => {
   const firstNum = getRandomNum();
   const secondNum = getRandomNum(4);
-  const question = `Question: ${firstNum} ${secondNum}`;
+  const question = `${firstNum} ${secondNum}`;
   const rightAnswer = String(findGCD(firstNum, secondNum));
   return [rightAnswer, question];
 };

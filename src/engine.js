@@ -1,4 +1,4 @@
-import { question } from 'readline-sync';
+import * as readlineSync from 'readline-sync';
 
 export const getRandomNum = (baseMultiplier = 5) => {
   const baseNum = Math.round(Math.random() * baseMultiplier);
@@ -11,9 +11,9 @@ export const engine = (playerName, description, getAnswerAndQuestion) => {
   const gameRounds = 3;
 
   for (let i = 0; i < gameRounds; i += 1) {
-    const [rightAnswer, randomNumber] = getAnswerAndQuestion();
-    console.log(`Question: ${randomNumber}`);
-    const answer = question('Your answer: ');
+    const [rightAnswer, question] = getAnswerAndQuestion();
+    console.log(`Question: ${question}`);
+    const answer = readlineSync.question('Your answer: ');
     if (answer !== rightAnswer) {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
       console.log(`Let's try again, ${playerName}!`);

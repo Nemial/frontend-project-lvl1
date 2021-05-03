@@ -18,7 +18,7 @@ const getAnswerAndQuestion = () => {
   const firstNumber = getRandomNum();
   const secondNumber = getRandomNum(4);
   const operation = operationSings[Math.floor(Math.random() * operationSings.length)];
-  const question = `Question: ${firstNumber} ${operation} ${secondNumber}`;
+  const question = `${firstNumber} ${operation} ${secondNumber}`;
   const rightAnswer = String(getExpressionResult(firstNumber, secondNumber, operation));
   return [rightAnswer, question];
 };
