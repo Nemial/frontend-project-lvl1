@@ -1,21 +1,19 @@
 import { question } from 'readline-sync';
 
-const isEven = (number) => (number % 2 === 0 ? 'yes' : 'no');
-
-const getRandomNum = (round) => {
-  const multiplier = isEven(round) ? 100 : 10;
-  return Math.round(Math.random() * multiplier);
+export const getRandomNum = (baseMultiplier = 5) => {
+  const baseNum = Math.round(Math.random() * baseMultiplier);
+  const multiplier = Math.floor((Math.random() * baseNum) * (baseMultiplier ** 2));
+  return Math.round((Math.random() * multiplier) * baseNum);
 };
 
-export default (playerName) => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+export const engine = (playerName, description, getAnswerAndQuestion) => {
+  console.log(description);
   const gameRounds = 3;
 
   for (let i = 0; i < gameRounds; i += 1) {
-    const randomNumber = getRandomNum(i);
+    const [rightAnswer, randomNumber] = getAnswerAndQuestion();
     console.log(`Question: ${randomNumber}`);
     const answer = question('Your answer: ');
-    const rightAnswer = isEven(randomNumber);
     if (answer !== rightAnswer) {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
       console.log(`Let's try again, ${playerName}!`);
