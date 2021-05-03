@@ -4,3 +4,4 @@
 [![BrainGames](https://github.com/Nemial/frontend-project-lvl1/actions/workflows/nodejs.yml/badge.svg)](https://github.com/Nemial/frontend-project-lvl1/actions/workflows/nodejs.yml)
 [![Ascinnema](https://asciinema.org/a/cguUCgjLoGdmX2TT2888sP2jx.png)](https://asciinema.org/a/cguUCgjLoGdmX2TT2888sP2jx)
 [![Ascinnema](https://asciinema.org/a/bXrDUqeTCmdnzfpE5UBPhfm21.png)](https://asciinema.org/a/bXrDUqeTCmdnzfpE5UBPhfm21)
+[![Ascinnema](https://asciinema.org/a/GOH9GqOsj2rMLnGkDWst2Pllg.png)](https://asciinema.org/a/GOH9GqOsj2rMLnGkDWst2Pllg)
