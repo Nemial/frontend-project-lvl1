@@ -23,7 +23,7 @@ const getAnswerAndQuestion = () => {
   const progression = generateProgression(firstNum, step);
   const hiddenItemIndex = Math.floor(Math.random() * progression.length);
   const rightAnswer = String(progression[hiddenItemIndex]);
-  progression[hiddenItemIndex] = '...';
+  progression[hiddenItemIndex] = '..';
   const question = progression.join(' ');
   return [rightAnswer, question];
 };
