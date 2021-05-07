@@ -1,17 +1,15 @@
-import { engine, getRandomNum } from '../engine.js';
-import * as cli from '../cli.js';
+import enableGame from '../engine.js';
+import getRandomNumber from '../math.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
-const isEven = (number) => (number % 2 === 0 ? 'yes' : 'no');
+const isEven = (number) => number % 2 === 0;
 
 const getAnswerAndQuestion = () => {
-  const question = getRandomNum();
-  const rightAnswer = isEven(question);
+  const question = getRandomNumber();
+  const rightAnswer = isEven(question) ? 'yes' : 'no';
   return [rightAnswer, question];
 };
 
 export default () => {
-  cli.welcome();
-  const playerName = cli.greeting();
-  engine(playerName, description, getAnswerAndQuestion);
+  enableGame(description, getAnswerAndQuestion);
 };

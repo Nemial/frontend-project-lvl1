@@ -1,30 +1,33 @@
-import { engine, getRandomNum } from '../engine.js';
-import * as cli from '../cli.js';
+import enableGame from '../engine.js';
+import getRandomNumber from '../math.js';
 
 const description = 'What is the result of the expression?';
 const operationSings = ['+', '-', '*'];
-const getExpressionResult = (firstNumber, secondNumber, operation) => {
+const calculateMathematicalOperation = (firstNumber, secondNumber, operation) => {
   switch (operation) {
     case '+':
       return firstNumber + secondNumber;
     case '-':
       return firstNumber - secondNumber;
-    default:
+    case '*':
       return firstNumber * secondNumber;
+    default:
+      throw new Error('Unknown operation');
   }
 };
 
 const getAnswerAndQuestion = () => {
-  const firstNumber = getRandomNum();
-  const secondNumber = getRandomNum(4);
-  const operation = operationSings[Math.floor(Math.random() * operationSings.length)];
+  const firstNumber = getRandomNumber();
+  const min = 1;
+  const max = 700;
+  const secondNumber = getRandomNumber(min, max);
+  const startIndex = 0;
+  const operation = operationSings[getRandomNumber(startIndex, operationSings.length)];
   const question = `${firstNumber} ${operation} ${secondNumber}`;
-  const rightAnswer = String(getExpressionResult(firstNumber, secondNumber, operation));
+  const rightAnswer = String(calculateMathematicalOperation(firstNumber, secondNumber, operation));
   return [rightAnswer, question];
 };
 
 export default () => {
-  cli.welcome();
-  const playerName = cli.greeting();
-  engine(playerName, description, getAnswerAndQuestion);
+  enableGame(description, getAnswerAndQuestion);
 };

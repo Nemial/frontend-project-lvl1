@@ -1,5 +1,5 @@
-import { engine, getRandomNum } from '../engine.js';
-import * as cli from '../cli.js';
+import enableGame from '../engine.js';
+import getRandomNumber from '../math.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const isPrime = (num) => {
@@ -17,14 +17,12 @@ const isPrime = (num) => {
 };
 
 const getAnswerAndQuestion = () => {
-  const firstNum = getRandomNum();
-  const rightAnswer = isPrime(firstNum) ? 'yes' : 'no';
-  const question = `${firstNum}`;
+  const firstNumber = getRandomNumber();
+  const rightAnswer = isPrime(firstNumber) ? 'yes' : 'no';
+  const question = String(firstNumber);
   return [rightAnswer, question];
 };
 
 export default () => {
-  cli.welcome();
-  const playerName = cli.greeting();
-  engine(playerName, description, getAnswerAndQuestion);
+  enableGame(description, getAnswerAndQuestion);
 };

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import * as cli from '../src/cli.js';
+import { welcome, greeting } from '../src/cli.js';
 
-cli.welcome();
-cli.greeting();
+welcome();
+greeting();

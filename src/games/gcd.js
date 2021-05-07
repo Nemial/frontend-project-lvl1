@@ -1,23 +1,23 @@
-import { engine, getRandomNum } from '../engine.js';
-import * as cli from '../cli.js';
+import enableGame from '../engine.js';
+import getRandomNumber from '../math.js';
 
 const description = 'Find the greatest common divisor of given numbers.';
-const findGCD = (firstNum, secondNum) => {
-  const result = firstNum % secondNum;
-  const minNum = secondNum === 0 ? firstNum : secondNum;
-  return result ? findGCD(secondNum, firstNum % secondNum) : minNum;
+const findGCD = (firstNumber, secondNumber) => {
+  const result = firstNumber % secondNumber;
+  const minNumber = secondNumber === 0 ? firstNumber : secondNumber;
+  return result ? findGCD(secondNumber, firstNumber % secondNumber) : minNumber;
 };
 
 const getAnswerAndQuestion = () => {
-  const firstNum = getRandomNum();
-  const secondNum = getRandomNum(4);
-  const question = `${firstNum} ${secondNum}`;
-  const rightAnswer = String(findGCD(firstNum, secondNum));
+  const firstNumber = getRandomNumber();
+  const min = 1;
+  const max = 900;
+  const secondNumber = getRandomNumber(min, max);
+  const question = `${firstNumber} ${secondNumber}`;
+  const rightAnswer = String(findGCD(firstNumber, secondNumber));
   return [rightAnswer, question];
 };
 
 export default () => {
-  cli.welcome();
-  const playerName = cli.greeting();
-  engine(playerName, description, getAnswerAndQuestion);
+  enableGame(description, getAnswerAndQuestion);
 };

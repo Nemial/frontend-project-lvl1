@@ -24,8 +24,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run build --if-present
+      - run: make install
+      - run: make build
 
       - name: Run Linter
         run: make lint
