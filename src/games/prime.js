@@ -1,4 +1,4 @@
-import enableGame from '../engine.js';
+import executeGame from '../engine.js';
 import getRandomNumber from '../math.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -24,5 +24,5 @@ const getAnswerAndQuestion = () => {
 };
 
 export default () => {
-  enableGame(description, getAnswerAndQuestion);
+  executeGame(description, getAnswerAndQuestion);
 };

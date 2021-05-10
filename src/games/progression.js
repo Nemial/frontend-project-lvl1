@@ -1,4 +1,4 @@
-import enableGame from '../engine.js';
+import executeGame from '../engine.js';
 import getRandomNumber from '../math.js';
 
 const description = 'What number is missing in the progression?';
@@ -14,19 +14,14 @@ const generateProgression = (startNumber, step, progressionLength = 10) => {
 
 const getAnswerAndQuestion = () => {
   const firstNumber = getRandomNumber();
-  const min = 1;
-  const max = 20;
-  const step = getRandomNumber(min, max);
+  const step = getRandomNumber(1, 20);
   const progression = generateProgression(firstNumber, step);
-  const startIndex = 0;
-  const hiddenItemIndex = getRandomNumber(startIndex, progression.length);
-  const deleteItemCount = 1;
-  const hiddenChar = '..';
-  const [rightAnswer] = progression.splice(hiddenItemIndex, deleteItemCount, hiddenChar);
+  const hiddenItemIndex = getRandomNumber(0, progression.length);
+  const [rightAnswer] = progression.splice(hiddenItemIndex, 1, '..');
   const question = progression.join(' ');
   return [String(rightAnswer), question];
 };
 
 export default () => {
-  enableGame(description, getAnswerAndQuestion);
+  executeGame(description, getAnswerAndQuestion);
 };

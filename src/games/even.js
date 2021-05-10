@@ -1,4 +1,4 @@
-import enableGame from '../engine.js';
+import executeGame from '../engine.js';
 import getRandomNumber from '../math.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -11,5 +11,5 @@ const getAnswerAndQuestion = () => {
 };
 
 export default () => {
-  enableGame(description, getAnswerAndQuestion);
+  executeGame(description, getAnswerAndQuestion);
 };

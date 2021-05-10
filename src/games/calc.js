@@ -1,4 +1,4 @@
-import enableGame from '../engine.js';
+import executeGame from '../engine.js';
 import getRandomNumber from '../math.js';
 
 const description = 'What is the result of the expression?';
@@ -18,16 +18,13 @@ const calculateMathematicalOperation = (firstNumber, secondNumber, operation) =>
 
 const getAnswerAndQuestion = () => {
   const firstNumber = getRandomNumber();
-  const min = 1;
-  const max = 700;
-  const secondNumber = getRandomNumber(min, max);
-  const startIndex = 0;
-  const operation = operationSings[getRandomNumber(startIndex, operationSings.length)];
+  const secondNumber = getRandomNumber(1, 700);
+  const operation = operationSings[getRandomNumber(0, operationSings.length)];
   const question = `${firstNumber} ${operation} ${secondNumber}`;
   const rightAnswer = String(calculateMathematicalOperation(firstNumber, secondNumber, operation));
   return [rightAnswer, question];
 };
 
 export default () => {
-  enableGame(description, getAnswerAndQuestion);
+  executeGame(description, getAnswerAndQuestion);
 };
