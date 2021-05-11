@@ -1,5 +1,5 @@
 import executeGame from '../engine.js';
-import getRandomNumber from '../math.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 const description = 'What is the result of the expression?';
 const operationSings = ['+', '-', '*'];

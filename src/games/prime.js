@@ -1,5 +1,5 @@
 import executeGame from '../engine.js';
-import getRandomNumber from '../math.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const isPrime = (num) => {
